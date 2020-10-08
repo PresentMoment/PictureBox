@@ -55,6 +55,25 @@ code {
   position: absolute;
 }
 
+.prev {
+  float: left;
+  margin-left: -3vw;
+  margin-top: 35vh;
+  width: 2vw;
+}
+
+.next {
+  float: right;
+  margin-right: -3vw;
+  margin-top: 35vh;
+  width: 2vw;
+}
+
+.prev img,
+.next img {
+  width: 100%;
+}
+
 .content {
   align-self: center;
   background-color: #ffffff8e;
@@ -66,6 +85,7 @@ code {
   top: 14.6vh;
   transform: translate(-50%, 0);
   border: 0.2rem solid #000000;
+  overflow: scroll;
 }
 
 .photo {
