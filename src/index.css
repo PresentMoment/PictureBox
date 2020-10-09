@@ -21,7 +21,7 @@ code {
 .heading {
   position: fixed;
   z-index: 99999;
-  top: 3vh;
+  top: 5vh;
   left: 48vw;
 }
 
@@ -76,6 +76,7 @@ code {
 
 .content {
   align-self: center;
+  text-align: center;
   background-color: #ffffff8e;
   width: 50vw;
   height: 75vh;
@@ -93,4 +94,30 @@ code {
   min-width: 100%;
   min-height: 100%;
   z-index: 0;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background: transparent;
+  width: 26.85vw;
+  font-size: 5vw;
+}
+
+input:focus {
+  outline-color: #000000;
+  outline-style: solid;
+  outline-width: 0.3rem;
+  outline-offset: -0.2rem;
+}
+
+::placeholder {
+  opacity: 1;
+  color: #000000;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.253);
 }

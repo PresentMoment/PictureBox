@@ -6,8 +6,10 @@ import back from "./images/back.png";
 
 function App() {
   const [photos, setPhotos] = useState([]);
+  const [query, setQuery] = useState("");
+  const [bgIMG, setBgIMG] = useState("");
   let urls = [];
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 3; i++) {
     urls.push("https://source.unsplash.com/random/");
   }
   useEffect(() => {
@@ -23,6 +25,16 @@ function App() {
       )
     );
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`https://source.unsplash.com/random//1600x900/?${query}`).then(
+      (data) => {
+        setBgIMG(data.url);
+      }
+    );
+  };
+
   return (
     <div className="container">
       <div className="overlay">
@@ -34,7 +46,14 @@ function App() {
         </div>
       </div>
       <div className="heading">
-        <p>Life's work</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder={"Background"}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </form>
       </div>
       <div className="content">
         {photos.map((item) => (
@@ -46,7 +65,10 @@ function App() {
       </div>
       <div
         className="photo"
-        style={{ backgroundImage: `url(${photo1})`, backgroundSize: "cover" }}
+        style={{
+          backgroundImage: `url(${!bgIMG ? photo1 : bgIMG})`,
+          backgroundSize: "cover",
+        }}
       ></div>
     </div>
   );
